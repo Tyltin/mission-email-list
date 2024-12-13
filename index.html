@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Join Alex Tyltin's Mission Updates</h1>
         <p>I'm serving a mission for the LDS Church in New York City! Sign up below to receive updates about my journey and experiences.</p>
-        <form id="emailForm" action="#" method="POST">
+        <form id="emailForm">
             <input type="email" name="email" placeholder="Enter your email" required>
             <button type="submit">Join Email List</button>
         </form>
@@ -19,5 +19,18 @@
             <p>Insert a picture of you or New York City here!</p>
         </div>
     </div>
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const email = event.target.email.value;
+            if (email) {
+                console.log(`Email collected: ${email}`);
+                alert('Thank you for signing up!');
+                event.target.reset();
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
 </body>
 </html>
