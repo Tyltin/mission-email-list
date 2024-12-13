@@ -24,6 +24,11 @@
             event.preventDefault(); // Prevent form submission
             const email = event.target.email.value;
             if (email) {
+                // Store the email in local storage
+                let emailList = JSON.parse(localStorage.getItem('emailList')) || [];
+                emailList.push(email);
+                localStorage.setItem('emailList', JSON.stringify(emailList));
+
                 console.log(`Email collected: ${email}`);
                 alert('Thank you for signing up!');
                 event.target.reset();
@@ -31,6 +36,9 @@
                 alert('Please enter a valid email address.');
             }
         });
+
+        // Debug: Display stored emails in console
+        console.log('Stored Emails:', JSON.parse(localStorage.getItem('emailList')));
     </script>
 </body>
 </html>
